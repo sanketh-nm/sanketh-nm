@@ -44,6 +44,7 @@
 		min-height: calc(100vh - 2em);
 		margin: 1em;
 		min-width: calc(100vw - 28px);
+		padding: 1em;
 	}
 
 	h1 {
@@ -123,7 +124,7 @@
 <script>
 
 	$(document).ready( function(){
-		$('.icon-anim').on("animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd", function () {
+		$('.icon-anim').one("animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd", function () {
 		console.log("animation end");
 		$(".icon-anim").css({"animation-dealy":"0s" , "-webkit-animation-delay" :"0s"});
 	});
@@ -164,9 +165,9 @@
 					<div class="col socLink s12 m5 l5 black z-depth-5 animated fadeInUp">GitHub</div>
 				</a>
 			</div>
-			<div class="icon-anim animated fadeInUp get_started" onclick="animateIt()">Let's go
+			<div class="icon-anim animated fadeInUp get_started" onclick="animateIt()">Start
 				<br>
-				<i class="material-icons large icon-anim animated fadeInUp">directions_bike</i>
+				<i class="material-icons large">directions_bike</i>
 			</div>
 		</div>
 	</div>
