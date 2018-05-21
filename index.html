@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-112400570-1"></script>
-	
+
 	<script>
 		window.dataLayer = window.dataLayer || [];
 
@@ -16,92 +16,189 @@
 
 		gtag('config', 'UA-112400570-1');
 	</script>
-	<script
-	src="https://code.jquery.com/jquery-3.3.1.min.js"
-	integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-	crossorigin="anonymous"></script>
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
-	 <!-- Compiled and minified CSS -->
-	 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+	    crossorigin="anonymous"></script>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<!-- Compiled and minified CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
 
-	 <!-- Compiled and minified JavaScript -->
-	 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-	 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+	<!-- Compiled and minified JavaScript -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+              <script>
+              new WOW().init();
+              </script>
 </head>
 
 <style>
-	body, html { overflow-x:hidden; }
+	body,
+	html {
+		overflow-x: hidden;
+		margin: 0;
+	}
 
-	.data{
+	.data {
 		background-color: #272626;
-		color:white;
+		color: white;
 		min-height: calc(100vh - 2em);
 		margin: 1em;
 		min-width: calc(100vw - 28px);
 	}
 
-	h1{
-		 margin-top: 0%;
-		 padding-top: 1em;
-		 margin: 0%;
+	h1 {
+		margin-top: 0%;
+		padding-top: 1em;
+		margin: 0%;
 	}
 
-	.col{
+	.socLink {
 		/* height: 5em; */
 		margin-top: 3em;
 		font-family: Verdana, Geneva, Tahoma, sans-serif;
 		font-size: xx-large;
 	}
-
-@media only screen and (max-width: 600px) {
-    .col {
-			margin-top: .25em;		
-    }
-	.container{
-		margin: auto;
+	.header {
+		/* height: 5em; */
+		margin-top: 1em;
+		font-family: Verdana, Geneva, Tahoma, sans-serif;
+		font-size: xx-large;
 	}
-}
 
-.col {
-  /* -webkit-animation-delay: 0.3s;
-  animation-delay: 1s; */
-  -webkit-animation-duration: 2s;
-  animation-duration: 2s;
-}
+	.text {
+		/* height: 5em; */
+		margin-top: .5em;
+		font-family: Verdana, Geneva, Tahoma, sans-serif;
+		font-size: xx-large;
+	}
 
-.get_started{
-	bottom: 10px;
-	position: absolute;
-	left: calc(50% - 42px);
-	-webkit-animation-duration: 2s;
-    animation-duration: 2s;
-	cursor: pointer;
-}
+	@media only screen and (max-width: 600px) {
+		.socLink {
+			margin-top: .25em;
+		}
+		.container {
+			margin: auto;
+		}
+	}
+	@media only screen and (min-width: 600px) {
+		.section1{
+			float: left;
+			width: 45%;
+		}
+		.section2{
+			float: right;
+			width: 45%;
+		}
+	}
 
+	.socLink {
+		/* -webkit-animation-duration: 2s;
+		animation-duration: 2s; */
+		-webkit-animation-delay: .8s;
+		animation-delay: .8s;
+	}
+
+	.get_started {
+		bottom: 10px;
+		position: absolute;
+		left: calc(50% - 42px);
+		/* -webkit-animation-duration: 2s;
+		animation-duration: 2s; */
+		cursor: pointer;
+	}
+
+	.wrapper{
+		margin-top: 1.5em;
+		
+	}
+
+	.icon-anim{
+		-webkit-animation-delay: 1.6s;
+		animation-delay: 1.6s;
+	}
 </style>
 <script>
-	function animateIt(){
+
+	$(document).ready( function(){
+		$('.icon-anim').on("animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd", function () {
+		console.log("animation end");
+		$(".icon-anim").css({"animation-dealy":"0s" , "-webkit-animation-delay" :"0s"});
+	});
+	})
+	
+
+
+	function animateIt() {
 		console.log("click");
-		$(".get_started").addClass("animated fadeOutRight");
+		$(".icon-anim").removeClass("fadeInUp").addClass("fadeOutRight");
 		setTimeout(() => {
-			$(".get_started").removeClass("fadeOutRight").addClass("fadeInLeft");
+			$(".icon-anim").removeClass("fadeOutRight").addClass("fadeInLeft");
 			console.log("time")
-		}, 2000);
+		}, 1500);
+
+		//$('.get_started').on("animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd", function () {
+			$('html,body').animate({
+					scrollTop: $(".skills").offset().top
+				},
+				1000);
+		//});
+
 	}
 </script>
+
 <body>
 	<div class="data z-depth-5 center">
-	<div class="animated fadeInDown"><h1>Sanketh Kumar</h1></div>
-	<div class="container">
-		<div class="row">
-			<a  href="https://www.linkedin.com/in/sankethkumarnm"><div class="col s12 m5 l5 black z-depth-5 animated fadeInLeft">LinkedIn</div></a>
-			<div class="col m2 .show-on-medium-and-up"></div>
-			<a  href="https://github.com/sanketh-nm"><div class="col s12 m5 l5 black z-depth-5 animated fadeInRight">GitHub</div></a>
+		<div class="animated fadeInUp">
+			<h1>Sanketh Kumar</h1>
 		</div>
-		<div class="get_started" onclick="animateIt()">Let's go<br> <i class="material-icons large">directions_bike</i></div>
+		<div class="container">
+			<div class="row">
+				<a href="https://www.linkedin.com/in/sankethkumarnm">
+					<div class="col socLink s12 m5 l5 black z-depth-5 animated fadeInUp">LinkedIn</div>
+				</a>
+				<div class="col m2 .show-on-medium-and-up"></div>
+				<a href="https://github.com/sanketh-nm">
+					<div class="col socLink s12 m5 l5 black z-depth-5 animated fadeInUp">GitHub</div>
+				</a>
+			</div>
+			<div class="icon-anim animated fadeInUp get_started" onclick="animateIt()">Let's go
+				<br>
+				<i class="material-icons large">directions_bike</i>
+			</div>
+		</div>
 	</div>
-</div>
+
+	<div>
+		<div class="data skills z-depth-5 ">
+			<div class="wow animated fadeInUp center">
+				<h1>Skills</h1>
+			</div>
+			<div class="container">
+				<div class="wrapper">
+				<div class="section1">
+				<div class="row">
+						<div class="col header s12 m5 l5 wow animated fadeInUp">Frontend</div>
+				</div>
+				<div class="row">
+				    <div class="col text s12 m12 l12 black z-depth-5 wow animated fadeInUp">HTML 5</div>
+					<div class="col text s12 m12 l12 black z-depth-5 wow animated fadeInUp">CSS 3</div>
+					<div class="col text s12 m12 l12 black z-depth-5 wow animated fadeInUp">jQuery</div>
+					<div class="col text s12 m12 l12 black z-depth-5 wow animated fadeInUp">JavaScript</div>
+					<div class="col text s12 m12 l12 black z-depth-5 wow animated fadeInUp">React</div>
+				</div>
+			 </div>
+			 <div class="section2">
+				<div class="row">
+						<div class="col header s12 m5 l5 wow animated fadeInUp">Backend</div>
+				</div>
+				<div class="row">
+				    <div class="col text s12 m12 l12 black z-depth-5 wow animated fadeInUp">Java</div>
+					<div class="col text s12 m12 l12 black z-depth-5 wow animated fadeInUp">Node JS</div>
+				</div>
+			</div>
+			</div>
+		</div>
+		</div>
 </body>
 
 </html>
