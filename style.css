@@ -86,4 +86,9 @@
 
 	.col.header{
 		padding-left: 0;
-	}
+    }
+
+    button > .btn.submit{
+        color: black;
+    }
+    
