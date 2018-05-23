@@ -88,7 +88,8 @@
 		padding-left: 0;
     }
 
-    button > .btn.submit{
-        color: black;
+    button.btn.submit, i.material-icons{
+		display: inline-block;
+		vertical-align: middle;
     }
     
