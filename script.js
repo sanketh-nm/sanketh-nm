@@ -26,6 +26,11 @@ $(document).ready(function () {
 				console.log(jqXHR);
 				console.log(textStatus);
 				console.log(errorThrown);
+				M.toast({
+					html: "Email failed",
+					classes: 'rounded red'
+				});
+				$('.submit').removeClass('animated flip infinite').html('Retry')
 			},
 
 			success: function (data) {
