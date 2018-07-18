@@ -1,0 +1,60 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script>
+   function escapeForJson(stuff) {
+  return stuff
+    .replace(/\b/g, "")
+    .replace(/\f/g, "")
+    .replace(/\\/g, "\\")
+    .replace(/\"/g, "\\\"")
+    .replace(/\t/g, "\\t")
+    .replace(/\r/g, "\\r")
+    .replace(/\n/g, "\\n")
+    .replace(/\u2028/g, "\\u2028")
+    .replace(/\u2029/g, "\\u2029");
+};
+        function f(){
+        alert(escapeForJson(document.getElementById("xml").value));
+        let xml = escapeForJson(document.getElementById("xml").value);
+            
+        let data = {
+    "meta": {
+        "message": {
+            "format": "xml",
+            "type": "CUSTOMER_ORDER",
+            "isLive": false,
+            "senderFileName": "test.edi"
+        },
+        "parties": {
+            "sending": "925485US00",
+            "receiving": "DL8002069640"
+        },
+        "validation": {
+            "reference": "json",
+            "level": "strict"
+        }
+    },
+    "message": xml
+}
+        let settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "http://us1.babelway.net/rest/orders/message.json",
+  "method": "POST",
+  "headers": {
+    "user": "doppio",
+    "password": "doppio",
+    "Content-Type": "application/json",
+    "Cache-Control": "no-cache",
+    "Postman-Token": "c34580df-2c76-4cb7-b948-b5d4238568a0"
+  },
+  "processData": false,
+  "data": data
+  }
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});
+        }
+        </script>
+<input type="textarea" id="xml" >xml</input>
+<input type="button" onClick="f()"></input>
